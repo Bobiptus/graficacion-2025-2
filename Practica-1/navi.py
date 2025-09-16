@@ -83,10 +83,9 @@ def linea(largo:int, angulo:float) -> None:
     Funcion para dibujar una linea
     """
     t.speed(10)
-    for _ in range(largo*2):
-        t.left(angulo)
-        t.forward(1)
-        t.setheading(0)
+    t.left(angulo)
+    t.forward(largo)
+    
 
 def mostrar_menu() -> str:
     """
