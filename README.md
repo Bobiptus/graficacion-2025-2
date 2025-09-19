@@ -30,3 +30,81 @@ Este proyecto es una práctica de la clase de Graficación en el ITE Ensenada. U
 
 - `navi.py`: Biblioteca con funciones para controlar el turtle, dibujar figuras y manejar la interfaz.
 - `practica1_figurasG.py`: Archivo principal que utiliza la biblioteca y lanza la aplicación gráfica.
+
+## Autor
+
+Armando Roberto Pérez Banda
+Control: 24760228
+
+# Práctica 2: Movimiento de Navegación
+
+## Descripción
+
+Este proyecto utiliza la librería `turtle` de Python para crear una figura geométrica interactiva que puede ser controlada mediante las teclas de dirección del teclado.
+
+## Características
+
+- Creación de figuras geométricas (cuadrado o círculo)
+- Control de movimiento mediante teclas de dirección
+- Interfaz gráfica con menú de instrucciones
+- Movimiento sin dejar rastro de la figura
+
+## Archivos del Proyecto
+
+- `practica2_movimientoG.py` - Archivo principal del programa
+- `Navi.py` - Módulo con las funciones de navegación y dibujo
+
+## Requisitos
+
+- Python 3.x (probado exitosamente en 3.10 y 3.12)
+- Librería turtle (incluida por defecto en Python)
+
+## Instrucciones de Uso
+
+### Ejecución
+
+```bash
+python practica2_movimientoG.py
+```
+
+### Controles
+
+- **Flecha Izquierda (◄)**: Mover la figura hacia la izquierda en el eje X
+- **Flecha Derecha (►)**: Mover la figura hacia la derecha en el eje X
+- **Flecha Arriba (▲)**: Mover la figura hacia arriba en el eje Y
+- **Flecha Abajo (▼)**: Mover la figura hacia abajo en el eje Y
+- **ESC**: Cerrar el programa
+
+### Selección de Figura
+
+Al iniciar el programa, se mostrará un cuadro de diálogo donde podrás elegir entre:
+
+- `cuadro` - Para dibujar un cuadrado
+- `círculo` o `circulo` - Para dibujar un círculo
+
+## Funcionalidades Técnicas
+
+### Módulo Principal (`practica2_movimientoG.py`)
+
+- Inicialización de la ventana gráfica
+- Configuración de eventos de teclado
+- Función de cierre del programa
+
+### Módulo de Navegación (`Navi.py`)
+
+- `mostrar_menu()`: Muestra las instrucciones en pantalla
+- `elegir_figura()`: Permite seleccionar la figura a dibujar
+- `walk_left()`, `walk_right()`, `walk_up()`, `walk_down()`: Funciones de movimiento
+- `draw_something()`: Dibuja la figura seleccionada
+- `teleport_1t()`, `teleport_2t()`: Funciones auxiliares para posicionamiento
+
+## Características del Movimiento
+
+- La figura se mueve en incrementos de 10 unidades
+- El movimiento se realiza sin dejar rastro (la figura anterior se borra)
+- Las coordenadas se actualizan globalmente para mantener la posición
+
+## Autor
+
+Armando Roberto Pérez Banda
+Control: 24760228
