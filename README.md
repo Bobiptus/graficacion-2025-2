@@ -104,6 +104,48 @@ Al iniciar el programa, se mostrará un cuadro de diálogo donde podrás elegir 
 - El movimiento se realiza sin dejar rastro (la figura anterior se borra)
 - Las coordenadas se actualizan globalmente para mantener la posición
 
+# Práctica 3: Lectura de Archivo Numérico y Pintado con Turtle
+
+## Descripción
+
+En esta práctica se implementa un programa que lee un archivo de texto (`imagen.txt`) que contiene únicamente números del 0 al 9. Cada número corresponde a un color de una paleta definida, y el programa utiliza la librería `turtle` para pintar una matriz de **100x100 píxeles** en la ventana gráfica.
+
+El objetivo es graficar la imagen codificada en el archivo numérico, asignando a cada dígito un color específico.
+
+## Paleta de Colores
+
+- 0 → Blanco
+- 1 → Negro
+- 2 → Verde
+- 3 → Rojo
+- 4 → Amarillo
+- 5 → Púrpura
+- 6 → Azul
+- 7 → Cyan
+- 8 → Chartreuse
+- 9 → Deep Pink
+
+## Archivos del Proyecto
+
+- `practica3_archivo_numericoG.py`: Programa principal que lee el archivo numérico y pinta la imagen.
+- `Tools.py`: Biblioteca auxiliar con funciones para posicionar el puntero, pintar píxeles y traducir números a colores.
+- `imagen.txt`: Archivo de entrada que contiene la matriz de números.
+
+## Requisitos
+
+- Python 3.x (probado exitosamente en 3.10 y 3.12)
+- Librería `turtle` (incluida por defecto en Python)
+
+## Instrucciones de Uso
+
+1. Coloca un archivo `imagen.txt` en el mismo directorio del programa.
+   - El archivo debe contener **100 líneas con 100 números cada una** (valores entre 0 y 9).
+2. Ejecuta el programa con:
+
+   ```bash
+   python practica3_archivo_numericoG.py
+   ```
+
 ## Autor
 
 Armando Roberto Pérez Banda

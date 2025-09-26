@@ -1,3 +1,7 @@
+"""
+Librería diseñada para tener las funciones necesarias para la práctica
+de lectura de archivos para imprimir la imagen en la pantalla
+"""
 import turtle
 t = turtle.Turtle()
 t.speed(0)
@@ -20,7 +24,8 @@ def print_dot(x:float, y:float, color:str) -> None:
 
 def revisa_color(codigo:int) -> str:
     """"
-    Funcion que se utiliza cuando se desigan el color, este es indicado por el numero que aparece en el arreglo, las opciones son las siguientes:
+    Funcion que se utiliza cuando se desigan el color, este es indicado por
+    el numero que aparece en el arreglo, las opciones son las siguientes:
 
     0) Blanco
     1) Negro
@@ -32,8 +37,10 @@ def revisa_color(codigo:int) -> str:
     7) Cyan
     8) Monasterio
     9) Roja profundo
-
     """
-    paleta = ['white', 'black', 'green', 'red', 'yellow', 'purple', 'blue', 'cyan', 'chartreuse', 'deeppink']
+    paleta = [
+        'white', 'black', 'green', 'red', 'yellow',
+        'purple', 'blue', 'cyan', 'chartreuse', 'deeppink'
+        ]
     color_seleccionado = str(paleta[codigo])
     return color_seleccionado
