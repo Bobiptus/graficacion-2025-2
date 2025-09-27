@@ -1,0 +1,5 @@
+triangulo 1500
+teleport 150,-150
+circu    lo 50
+telepo   rt -100,-1000
+cuadro 2001
