@@ -150,3 +150,108 @@ El objetivo es graficar la imagen codificada en el archivo numérico, asignando 
 
 Armando Roberto Pérez Banda
 Control: 24760228
+
+Práctica 4: Sistema de Dibujo Automatizado por Comandos de Texto
+Descripción
+Este proyecto implementa un sistema de dibujo automatizado que lee comandos desde un archivo de texto (dibujante.txt) y los convierte en gráficos vectoriales usando la biblioteca Turtle de Python. El sistema utiliza una arquitectura modular con analizador léxico, controlador de comandos y biblioteca de funciones de dibujo.
+Arquitectura del Sistema
+Módulos Componentes:
+
+practica4_archivo_instruccionesG.py - Programa principal y configuración del entorno gráfico
+navi_tools.py - Analizador léxico de comandos de texto
+opciones_menu.py - Controlador de comandos y validador de parámetros
+instrucciones.py - Biblioteca de funciones de dibujo geométrico
+
+Flujo de Ejecución:
+
+[INICIO] Configuración del entorno gráfico
+[LECTURA] Carga completa del archivo de comandos
+[PROCESAMIENTO] Análisis léxico línea por línea
+[VALIDACIÓN] Verificación de sintaxis y rangos
+[EJECUCIÓN] Dibujo de figuras geométricas
+[FINALIZACIÓN] Espera por clic para cerrar
+
+Comandos Soportados
+
+circulo <radio>: Dibuja un círculo con el radio especificado
+cuadro <lado>: Dibuja un cuadrado con el lado especificado
+triangulo <lado>: Dibuja un triángulo equilátero con el lado especificado
+teleport <x>,<y>: Mueve la tortuga a las coordenadas especificadas sin dibujar
+
+Reglas del Formato de Archivo de Entrada
+Estructura General:
+
+Una instrucción por línea
+Formato: <comando> <parámetro1>[,<parámetro2>]
+Las líneas vacías se ignoran
+Los espacios en blanco al inicio y final de línea se ignoran
+
+Ejemplos de Formato Válido:
+circulo 50
+cuadro 100
+triangulo 75
+teleport 150,-100
+circulo 25.5
+teleport -200,200
+
+Validaciones Implementadas:
+
+Tamaño de figuras: debe ser > 0 y ≤ 300 píxeles
+Coordenadas de teleport: deben estar entre -300 y 300
+Comando teleport: requiere obligatoriamente dos coordenadas
+Conversión de tipos: maneja errores de valores no numéricos
+
+Características Técnicas
+Sistema de Coordenadas:
+
+Origen (0,0): Centro de la pantalla de dibujo
+Eje X: Positivo hacia la derecha, negativo hacia la izquierda
+Eje Y: Positivo hacia arriba, negativo hacia abajo
+Rango recomendado: -300 a +300 píxeles en cada eje
+
+Precisión del Círculo:
+
+Utiliza 60 segmentos para aproximar la curvatura
+Cada segmento representa 6° del círculo total (360°/60)
+La longitud de cada segmento se calcula como: (2πr)/60
+
+Orientación de la Tortuga:
+
+Todas las figuras inician con orientación 0° (hacia la derecha)
+Se restablece la orientación antes de cada dibujo para consistencia
+Los ángulos se miden en sentido antihorario desde la horizontal derecha
+
+Uso
+
+Crea un archivo dibujante.txt en el mismo directorio del programa
+Escribe los comandos de dibujo siguiendo el formato especificado
+
+Ejecuta el programa principal:
+python practica4_archivo_instruccionesG.py
+
+Requisitos del Sistema
+
+Python 3.x (probado exitosamente en 3.10 y 3.12)
+Módulo turtle (incluido en la biblioteca estándar de Python)
+
+Instalación y Ejecución
+
+Clona o descarga este repositorio
+Navega al directorio del proyecto que desees ejecutar
+Asegúrate de tener los archivos de entrada necesarios (según la práctica)
+Ejecuta el archivo principal de Python correspondiente
+
+Estructura del Repositorio
+├── practica1_figurasG.py
+├── navi.py
+├── practica2_movimientoG.py
+├── Navi.py
+├── practica3_archivo_numericoG.py
+├── Tools.py
+├── imagen.txt
+├── practica4_archivo_instruccionesG.py
+├── navi_tools.py
+├── opciones_menu.py
+├── instrucciones.py
+├── dibujante.txt
+└── README.md
