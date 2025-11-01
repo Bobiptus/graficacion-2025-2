@@ -85,7 +85,7 @@ Este código fue modificado a partir de una versión base. Los cambios implement
 
 ## 👨‍💻 Autor
 
-[Tu nombre aquí]
+[Armando Roberto Pérez Banda - 24760228]
 
 ## 📄 Licencia
 
