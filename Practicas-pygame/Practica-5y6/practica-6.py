@@ -80,8 +80,9 @@ while ejecutando:
             x += velocidad
             direccion = "derecha"
             moviendo = True
+        #Aqui intente que saliera el hadouken al presionar escape, pero no logre que trabajara
     elif teclas[pygame.K_ESCAPE]:
-        VENTANA.blit(hadouken, (x + FRAME_ANCHO, y + FRAME_ALTO // 2 - 15))
+        VENTANA.blit(hadouken, (x + FRAME_ANCHO // 2 - 40, y + FRAME_ALTO // 2 - 15))
         clock = pygame.time.Clock()
         clock.tick(60)
    
