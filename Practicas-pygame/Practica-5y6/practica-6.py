@@ -2,17 +2,26 @@ import pygame
 pygame.init()
 
 # --- Configuración ---
-ANCHO, ALTO = 640, 480
+ANCHO, ALTO = 1200, 800
 VENTANA = pygame.display.set_mode((ANCHO, ALTO))
 pygame.display.set_caption("Animación Direccional - Sprite Sheet")
+
+fondo = pygame.image.load("Practica-5y6/background.png").convert()
+fondo = pygame.transform.scale(fondo, (ANCHO, ALTO))
+
+VENTANA.blit(fondo, (0, 0))
+
+#confiugurar el hadouken
+hadouken = pygame.image.load("Practica-5y6/hadouken.png").convert_alpha()
+hadouken = pygame.transform.scale(hadouken, (80, 30))
 
 # --- Cargar Sprite Sheet ---
 sprite_sheet = pygame.image.load("Practica-5y6/personaje_direcciones.png").convert_alpha()
 
-FRAME_ANCHO = 64
-FRAME_ALTO = 64
-FILAS = 4       # Una fila por dirección
-COLUMNAS = 4    # Cuatro fotogramas por fila
+FRAME_ANCHO = 230
+FRAME_ALTO = 300
+FILAS = 4
+COLUMNAS = 4
 
 # --- Función para extraer los cuadros de una fila ---
 def obtener_frames(fila):
@@ -25,10 +34,10 @@ def obtener_frames(fila):
 
 # --- Diccionario con las animaciones de cada dirección ---
 animaciones = {
-    "arriba": obtener_frames(0),
-    "izquierda": obtener_frames(1),
-    "abajo": obtener_frames(2),
-    "derecha": obtener_frames(3)
+    "arriba": obtener_frames(3),
+    "izquierda": obtener_frames(2),
+    "abajo": obtener_frames(0),
+    "derecha": obtener_frames(1)
 }
 
 # --- Variables de juego ---
@@ -52,22 +61,30 @@ while ejecutando:
     moviendo = False
 
     if teclas[pygame.K_UP]:
-        y -= velocidad
-        direccion = "arriba"
-        moviendo = True
+        if y > 0:
+            y -= velocidad
+            direccion = "arriba"
+            moviendo = True
     elif teclas[pygame.K_DOWN]:
-        y += velocidad
-        direccion = "abajo"
-        moviendo = True
+        if y < ALTO - FRAME_ALTO:
+            y += velocidad
+            direccion = "abajo"
+            moviendo = True
     elif teclas[pygame.K_LEFT]:
-        x -= velocidad
-        direccion = "izquierda"
-        moviendo = True
+        if x > 0:
+            x -= velocidad
+            direccion = "izquierda"
+            moviendo = True
     elif teclas[pygame.K_RIGHT]:
-        x += velocidad
-        direccion = "derecha"
-        moviendo = True
-
+        if x < ANCHO - FRAME_ANCHO:
+            x += velocidad
+            direccion = "derecha"
+            moviendo = True
+    elif teclas[pygame.K_ESCAPE]:
+        VENTANA.blit(hadouken, (x + FRAME_ANCHO, y + FRAME_ALTO // 2 - 15))
+        clock = pygame.time.Clock()
+        clock.tick(60)
+   
     # --- Actualizar animación ---
     ahora = pygame.time.get_ticks()
     if moviendo:
@@ -75,10 +92,12 @@ while ejecutando:
             frame_index = (frame_index + 1) % len(animaciones[direccion])
             ultimo_tiempo = ahora
     else:
-        frame_index = 0  # quieto muestra primer frame
+        direccion = "abajo" 
+        frame_index = 1 
 
     # --- Dibujar ---
     VENTANA.fill((90, 150, 255))
+    VENTANA.blit(fondo, (0, 0))
     VENTANA.blit(animaciones[direccion][frame_index], (x, y))
     pygame.display.flip()
     reloj.tick(60)
